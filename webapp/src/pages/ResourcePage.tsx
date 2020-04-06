@@ -7,6 +7,7 @@ import '../styles/ResourcePage.scss';
 
 import FileManager from "../components/FileManager";
 import ResourceMetadata from '../components/ResourceMetadata';
+import DisplayReadMe from '../components/DisplayReadMe';
 
 import * as resourcePageActions from '../store/actions/ResourcePage';
 import * as resourcesActions from '../store/actions/resources';
@@ -101,6 +102,8 @@ class ResourcePage extends React.Component<PropsType, never> {
           copyFileOrFolder={copyFileOrFolder}
           moveFileOrFolder={moveFileOrFolder}
         />
+        <DisplayReadMe resource={resource}/>
+        
       </div>
     )
   }

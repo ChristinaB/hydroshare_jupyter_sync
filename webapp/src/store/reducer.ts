@@ -137,6 +137,7 @@ export function resourcesReducer(state: IResourcesState = initResourcesState, ac
       const {
         resourceId,
         rootDir,
+        readMe,
       } = action.payload;
       rootDir.contents = recursivelyConvertDatesToMoment(rootDir.contents);
       let resourceLocFilesBeingFetched = new Set(Array.from(state.resourceHydroShareFilesBeingFetched));
@@ -148,6 +149,7 @@ export function resourcesReducer(state: IResourcesState = initResourcesState, ac
           [resourceId]: {
             ...state.allResources[resourceId],
             jupyterHubFiles: rootDir,
+            jupyterHubReadMe: readMe,
           },
         },
         resourceLocalFilesBeingFetched: resourceLocFilesBeingFetched,

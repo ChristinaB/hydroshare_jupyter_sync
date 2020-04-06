@@ -13,6 +13,7 @@ from remote_folder import RemoteFolder
 import logging
 import os
 from os import path
+import dateutil
 from dateutil.parser import parse
 import datetime
 import re
@@ -88,6 +89,14 @@ class Resource:
             "contents": files,
         }
         return root_dir
+
+    def get_readme_JH(self):
+        read_me_path = Path(self.path_prefix) / "README.md"
+        if read_me_path.exists():
+            print(read_me_path)
+            F = open(read_me_path, 'r')
+            return F.read()
+        return None
 
     def update_hs_files(self):
         self.hs_files = self.get_files_upon_init_HS()

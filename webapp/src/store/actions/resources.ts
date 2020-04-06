@@ -44,10 +44,11 @@ export function setResources(resources: IJupyterResource[]) {
   return action(ResourcesActions.SET_RESOURCES, resources);
 }
 
-export function setResourceLocalFiles(resourceId: string, rootDir: IFolder) {
+export function setResourceLocalFiles(resourceId: string, rootDir: IFolder, readMe: string) {
   return action(ResourcesActions.SET_RESOURCE_LOCAL_FILES, {
     resourceId,
     rootDir,
+    readMe,
   });
 }
 

@@ -40,6 +40,7 @@ class LocalFolder:
 
         files2 = []
         for filepath in files:
+            # print(filepath)
             # check contents recursively:
             folder_contents = self.get_contents_recursive(filepath, resource_data_root_dir, path_prefix)
 
