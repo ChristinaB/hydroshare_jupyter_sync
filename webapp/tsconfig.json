@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "outDir": "build/dist",
     "module": "esnext",
@@ -12,7 +13,7 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true

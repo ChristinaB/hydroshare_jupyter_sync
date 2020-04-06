@@ -9,6 +9,7 @@ import DeleteConfirmationModal from "../components/DeleteConfirmationModal";
 import FileManager from "../components/FileManager";
 import NewFileModal from "../components/NewFileModal";
 import ResourceMetadata from '../components/ResourceMetadata';
+import DisplayReadMe from '../components/DisplayReadMe';
 
 import * as resourcePageActions from '../store/actions/ResourcePage';
 import * as resourcesActions from '../store/actions/resources';
@@ -156,6 +157,8 @@ class ResourcePage extends React.Component<PropsType, StateType> {
           promptDeleteFilesOrFolders={this.displayDeleteConfirmationModal}
         />
         {modal}
+        <DisplayReadMe resource={resource}/>
+        
       </div>
     )
   }

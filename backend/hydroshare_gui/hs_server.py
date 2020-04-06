@@ -119,7 +119,8 @@ class FileHandlerJH(BaseRequestHandler):
     def get(self, res_id):
         resource = Resource(res_id, resource_handler)
         jh_files = resource.get_files_JH()
-        self.write({'rootDir': jh_files})
+        jh_readme = resource.get_readme_JH()
+        self.write({'rootDir': jh_files, 'readMe': jh_readme})
 
     def delete(self, res_id):
         filepaths = self.get_argument("filepaths[]")

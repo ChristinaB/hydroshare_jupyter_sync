@@ -1,30 +1,32 @@
 import * as React from 'react';
-import ReadMoreReact from 'read-more-react';
+import ReactMarkdown from 'react-markdown';
 import {
   IJupyterResource,
 } from '../store/types';
 
-import '../styles/ResourceMetadata.scss';
+import '../styles/DisplayReadMe.scss';
 
 export interface IPropTypes {
   resource: IJupyterResource
 }
 
-export default class ResourceMetadata extends React.Component<IPropTypes, never> {
+export default class DisplayReadMe extends React.Component<IPropTypes, never> {
 
   public render() {
     const {
      // id,
       title,
       hydroShareResource,
+      jupyterHubReadMe,
     } = this.props.resource;
      // const hydroShareUrl = `https://www.hydroshare.org/resource/${id}/`;
     const hsResourceMeta = hydroShareResource ? (
         <div className="resource-info">
-            <div className="info-wrapping">
+            <ReactMarkdown source={jupyterHubReadMe} />
+            {/* <div className="info-wrapping">
                 <div className="info-group">
                     <span className="info-header">Author</span>
-                    <p>{hydroShareResource.author}</p>
+                    <p>{jupyterHubReadMe}</p>
                 </div>
                 <div className="info-group">
                     <span className="info-header">Owners</span>
@@ -44,16 +46,13 @@ export default class ResourceMetadata extends React.Component<IPropTypes, never>
                 </div>
                 <div className="info-group">
                     <span className="info-header">Last Modified</span>
-                    <p>{hydroShareResource.date_last_updated.format('MMM D, YYYY')}</p>
+                    <p>{hydroShareResource.date_last_updated.format('MMM D, YYYY H:mm a')}</p>
                 </div>
             </div>
             <div className="info-group">
                 <span className="info-header">Abstract</span>
-                <ReadMoreReact 
-                  text = {hydroShareResource.abstract}
-                  readMoreText = {<p className="info-read-more">Read More</p>}
-                />
-            </div>
+                
+            </div> */}
         </div>
     ) : null;
     return (

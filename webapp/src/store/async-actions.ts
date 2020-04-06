@@ -167,10 +167,11 @@ export function getResourceLocalFiles(resource: IJupyterResource) {
     const {
       data: {
         rootDir,
+        readMe,
       },
     } = response;
 
-    dispatch(setResourceLocalFiles(resource.id, rootDir));
+    dispatch(setResourceLocalFiles(resource.id, rootDir, readMe));
   };
 }
 
