@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ReactMarkdown from 'react-markdown';
+// import ReactMarkdown from 'react-markdown';
 import {
   IJupyterResource,
 } from '../store/types';
@@ -17,12 +17,12 @@ export default class DisplayReadMe extends React.Component<IPropTypes, never> {
      // id,
       title,
       hydroShareResource,
-      jupyterHubReadMe,
+      //jupyterHubReadMe,
     } = this.props.resource;
      // const hydroShareUrl = `https://www.hydroshare.org/resource/${id}/`;
     const hsResourceMeta = hydroShareResource ? (
         <div className="resource-info">
-            <ReactMarkdown source={jupyterHubReadMe} />
+            {/* <ReactMarkdown source={jupyterHubReadMe} /> */}
             {/* <div className="info-wrapping">
                 <div className="info-group">
                     <span className="info-header">Author</span>
