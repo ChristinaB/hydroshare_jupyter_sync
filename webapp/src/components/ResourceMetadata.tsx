@@ -1,5 +1,4 @@
 import * as React from 'react';
-import ReadMoreReact from 'read-more-react';
 import {
   IJupyterResource,
 } from '../store/types';
@@ -39,20 +38,17 @@ export default class ResourceMetadata extends React.Component<IPropTypes, never>
                     <p>{hydroShareResource.date_created}</p>
                 </div>
                 <div className="info-group">
-                    <span className="info-header">Sharing Status</span>
-                    <p>{hydroShareResource.status}</p>
-                </div>
-                <div className="info-group">
                     <span className="info-header">Last Modified</span>
                     <p>{hydroShareResource.date_last_updated.format('MMM D, YYYY')}</p>
+                </div>
+                <div className="info-group">
+                    <span className="info-header">Sharing Status</span>
+                    <p>{hydroShareResource.status}</p>
                 </div>
             </div>
             <div className="info-group">
                 <span className="info-header">Abstract</span>
-                <ReadMoreReact 
-                  text = {hydroShareResource.abstract}
-                  readMoreText = {<p className="info-read-more">Read More</p>}
-                />
+                <p>{hydroShareResource.abstract}</p>
             </div>
         </div>
     ) : null;

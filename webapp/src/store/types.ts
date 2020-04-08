@@ -47,9 +47,9 @@ export interface IJupyterResource {
   id: string
   localCopyExists: boolean
   jupyterHubFiles: IFolder
-  jupyterHubReadMe: string
+  jupyterHubReadMe?: string
   title: string
-  readmeMarkdown?: string
+  hydroShareReadMe?: string
   hydroShareResource: IHydroShareResourceInfo
 }
 

@@ -157,8 +157,7 @@ class ResourcePage extends React.Component<PropsType, StateType> {
           promptDeleteFilesOrFolders={this.displayDeleteConfirmationModal}
         />
         {modal}
-        <DisplayReadMe resource={resource}/>
-        
+        <DisplayReadMe jupyterHubReadMe={resource.jupyterHubReadMe} />
       </div>
     )
   }
