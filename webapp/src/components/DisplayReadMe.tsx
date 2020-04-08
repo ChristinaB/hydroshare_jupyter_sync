@@ -1,27 +1,22 @@
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
-import {
-  IJupyterResource,
-} from '../store/types';
 
 import '../styles/DisplayReadMe.scss';
 
 export interface IPropTypes {
-  resource: IJupyterResource
+  jupyterHubReadMe?: string
 }
 
 export default class DisplayReadMe extends React.Component<IPropTypes, never> {
 
   public render() {
     const {
-     // id,
-      title,
-      hydroShareResource,
       jupyterHubReadMe,
-    } = this.props.resource;
+    } = this.props;
      // const hydroShareUrl = `https://www.hydroshare.org/resource/${id}/`;
-    const hsResourceMeta = hydroShareResource ? (
+    const jhReadMe = jupyterHubReadMe ? (
         <div className="resource-info">
+          {/* <p>{jupyterHubReadMe}</p> */}
             <ReactMarkdown source={jupyterHubReadMe} />
             {/* <div className="info-wrapping">
                 <div className="info-group">
@@ -57,9 +52,8 @@ export default class DisplayReadMe extends React.Component<IPropTypes, never> {
     ) : null;
     return (
       <div className="ResourceInfo content-row tile">
-        <h1 className="title">{title}</h1>
         <div className="resource-meta-container">
-          {hsResourceMeta}
+          {jhReadMe}
         </div>
       </div>
     )

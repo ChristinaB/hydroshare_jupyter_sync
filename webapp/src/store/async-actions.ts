@@ -225,7 +225,6 @@ export function getResourceLocalFiles(resource: IJupyterResource) {
         readMe,
       },
     } = response;
-
     dispatch(setResourceLocalFiles(resource.id, rootDir, readMe));
   };
 }
