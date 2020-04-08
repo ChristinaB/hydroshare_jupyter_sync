@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ReactMarkdown from 'react-markdown';
+//import ReactMarkdown from 'react-markdown';
 
 import '../styles/DisplayReadMe.scss';
 
@@ -17,7 +17,7 @@ export default class DisplayReadMe extends React.Component<IPropTypes, never> {
     const jhReadMe = jupyterHubReadMe ? (
         <div className="resource-info">
           {/* <p>{jupyterHubReadMe}</p> */}
-            <ReactMarkdown source={jupyterHubReadMe} />
+            {/* <ReactMarkdown source={jupyterHubReadMe} /> */}
             {/* <div className="info-wrapping">
                 <div className="info-group">
                     <span className="info-header">Author</span>
