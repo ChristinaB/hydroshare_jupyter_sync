@@ -104,7 +104,7 @@ class Resource:
             print(read_me_path)
             F = open(read_me_path, 'r')
             return F.read()
-        return None
+        return ""
 
     def update_hs_files(self):
         # SPIFFY (Vicky) interesting.. do we want an update for HS? when is this called?
