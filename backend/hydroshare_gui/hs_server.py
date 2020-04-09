@@ -108,13 +108,39 @@ class ResourcesRootHandler(BaseRequestHandler):
 class ResourceHandler(BaseRequestHandler):
     """ Handles resource-specific requests made to /resources/<resource_id> """
 
+    def options(self):
+        # web browsers make an OPTIONS request to check what methods (line 31) are allowed at/for an endpoint.
+        # We just need to respond with the header set on line 31.
+        self.set_status(204)  # No content
+        self.finish()
+
     def delete(self, res_id):
-        local_del_error = resource_handler.delete_resource_JH(res_id)
-        # TODO: Delete the resource from HydroShare if the user owns it
-        if local_del_error:
-            self.set_status(500)
+        body = json.loads(self.request.body.decode('utf-8'))
+        delete_location = body.get("delete_local_or_HS")
+
+        success = True
+        error = None
+        if delete_location == "HydroShare":
+            pass
+            # super dangerous, we need to add persmission testing, this will let you delete a resource
+            # you don't have edit privileges for
+            # resource_handler.delete_resource_HS(res_id)
+        elif delete_location == "local":
+            local_del_error = resource_handler.delete_resource_JH(res_id)
+            # TODO: Delete the resource from HydroShare if the user owns it
+            if local_del_error:
+                self.set_status(500)
+                error = local_del_error
+                success = False
+            else:
+                self.set_status(200)
         else:
-            self.set_status(200)
+            success = False
+            error = "Cannot delete this resource."
+            
+        self.write({'resource_id': res_id,
+                    'success': success,
+                    'error': error})
         self.finish()
 
 
@@ -149,6 +175,11 @@ class FileHandlerJH(BaseRequestHandler):
             self.write({
                 'success': True,
             })
+        # elif request_type == "new_folder":
+        #     resource.create_folder_JH(body.get("new_folder_path"))
+        #     self.write({
+        #         'success': True,
+        #     })
         else:
             # TODO: the format of this should be updated (the response code should also be something other than 200)
             self.write("Please specify valid request type for PUT")

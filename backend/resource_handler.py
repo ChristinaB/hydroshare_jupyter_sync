@@ -103,6 +103,9 @@ class ResourceHandler:
             error = {'type':'UnknownError', 'msg':'Something went wrong. Could not delete resource.'}
         return error
 
+    def delete_resource_HS(self, res_id):
+        self.hs.deleteResource(res_id)
+
     def get_local_JH_resources(self):
         """Gets dictionary of jupyterhub resources by resource id that are
         saved locally.
